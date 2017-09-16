@@ -3,11 +3,14 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 using System.Windows.Forms;
+using WinBioNET;
+using WinBioNET.Enums;
 
 namespace FingerprintPlugin
 {
 	public sealed class FingerprintPluginExt : Plugin
 	{
+		private static readonly Guid DatabaseId = new Guid("17DE1D0D-BD7F-4868-AEC6-D385DFE43561");
 		private IPluginHost m_host = null;
 		private FingerprintKeyProvider keyProv = new FingerprintKeyProvider();
 		private ToolStripMenuItem optionsMenu;
@@ -30,6 +33,13 @@ namespace FingerprintPlugin
 
 		private void OnOptions_Click(object sender, EventArgs e)
 		{
+
+			if (!WinBioConfiguration.DatabaseExists(DatabaseId))
+			{
+				//Start Process EnrollCapture
+
+			}
+
 			var pwdForm = new PasswordForm();
 
 			if (pwdForm.ShowDialog() == DialogResult.OK)
