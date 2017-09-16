@@ -1,0 +1,2 @@
+# KeePassFingerprint
+KeePass Fingerprint Plugin
