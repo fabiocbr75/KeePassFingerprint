@@ -97,6 +97,15 @@ namespace FingerprintPlugin.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Fingerprint configuration seems invalid..
+        /// </summary>
+        internal static string FingerprintConfigurationError {
+            get {
+                return ResourceManager.GetString("FingerprintConfigurationError", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Information.
         /// </summary>
         internal static string Information {
@@ -142,7 +151,7 @@ namespace FingerprintPlugin.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to KeePass RFID Error.
+        ///   Looks up a localized string similar to KeePass Fingerprint Error.
         /// </summary>
         internal static string PluginError {
             get {
@@ -165,15 +174,6 @@ namespace FingerprintPlugin.Properties {
         internal static string RFIDCommunicationError {
             get {
                 return ResourceManager.GetString("RFIDCommunicationError", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to RFID configuration seems invalid..
-        /// </summary>
-        internal static string RFIDConfigurationError {
-            get {
-                return ResourceManager.GetString("RFIDConfigurationError", resourceCulture);
             }
         }
         

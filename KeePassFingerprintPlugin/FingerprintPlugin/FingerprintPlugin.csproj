@@ -61,6 +61,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CheckFinger.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CheckFinger.Designer.cs">
+      <DependentUpon>CheckFinger.cs</DependentUpon>
+    </Compile>
     <Compile Include="FingerprintKeyProvider.cs" />
     <Compile Include="FingerprintPlugin.cs" />
     <Compile Include="OptionsForm.cs">
@@ -83,6 +89,9 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="CheckFinger.resx">
+      <DependentUpon>CheckFinger.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="OptionsForm.resx">
       <DependentUpon>OptionsForm.cs</DependentUpon>
     </EmbeddedResource>

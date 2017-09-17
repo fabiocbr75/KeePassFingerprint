@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Text;
+using System.Windows.Forms;
 
 namespace FingerprintPlugin
 {
@@ -12,10 +13,16 @@ namespace FingerprintPlugin
 			get { return "Fingerprint Key Provider"; }
 		}
 
+		public override bool GetKeyMightShowGui => true;
 
 		public override byte[] GetKey(KeyProviderQueryContext ctx)
 		{
-			throw new NotImplementedException();
+			MessageBox.Show(Properties.Resources.FingerprintConfigurationError, Properties.Resources.PluginError, MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+			CheckFinger checkFinger = new CheckFinger();
+			checkFinger.ShowDialog();
+			
+			return Encoding.ASCII.GetBytes(@"password");
 		}
 	}
 }
