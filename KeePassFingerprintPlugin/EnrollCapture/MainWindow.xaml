@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:EnrollCapture"
         mc:Ignorable="d"
         Title="MainWindow" Height="350" Width="525">
-    <Grid>
-        
-    </Grid>
+    <StackPanel>
+        <ListBox Name="Messages"></ListBox>
+    </StackPanel>
 </Window>

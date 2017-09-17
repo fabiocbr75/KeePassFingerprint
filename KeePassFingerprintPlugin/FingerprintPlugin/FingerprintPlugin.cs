@@ -10,7 +10,6 @@ namespace FingerprintPlugin
 {
 	public sealed class FingerprintPluginExt : Plugin
 	{
-		private static readonly Guid DatabaseId = new Guid("17DE1D0D-BD7F-4868-AEC6-D385DFE43561");
 		private IPluginHost m_host = null;
 		private FingerprintKeyProvider keyProv = new FingerprintKeyProvider();
 		private ToolStripMenuItem optionsMenu;
@@ -31,20 +30,29 @@ namespace FingerprintPlugin
 			return true;
 		}
 
+		public override void Terminate()
+		{
+			// Remove menu items
+			this.optionsMenu.Click -= OnOptions_Click;
+			this.m_host.MainWindow.ToolsMenu.DropDownItems.Remove(this.optionsMenu);
+
+			// Unregister key provider
+			this.m_host.KeyProviderPool.Remove(keyProv);
+		}
+
 		private void OnOptions_Click(object sender, EventArgs e)
 		{
-
-			if (!WinBioConfiguration.DatabaseExists(DatabaseId))
+			if (!this.m_host.Database.IsOpen)
 			{
-				//Start Process EnrollCapture
-
+				MessageBox.Show(Properties.Resources.DbNotOpen, Properties.Resources.PluginError, MessageBoxButtons.OK, MessageBoxIcon.Error);
+				return;
 			}
 
-			var pwdForm = new PasswordForm();
+			var OptionsForm = new OptionsForm();
 
-			if (pwdForm.ShowDialog() == DialogResult.OK)
+			if (OptionsForm.ShowDialog() == DialogResult.OK)
 			{
-				var pwd = pwdForm.Password;
+				//var pwd = pwdForm.Password;
 				//KeePassRFIDConfig config = options.GetConfiguration();
 				//KeePassRFIDConfig.SaveToCurrentSession(config);
 			}

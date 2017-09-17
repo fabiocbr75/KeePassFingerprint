@@ -8,6 +8,8 @@ using System.Linq;
 using System.Runtime.InteropServices;
 using System.Text;
 using System.Windows.Forms;
+using WinBioNET;
+using WinBioNET.Enums;
 
 namespace FingerprintPlugin
 {
@@ -16,141 +18,85 @@ namespace FingerprintPlugin
         public OptionsForm()
         {
             InitializeComponent();
-        }
-
-        private void imgLogo_Click(object sender, EventArgs e)
-        {
-            Process.Start("http://www.islog.com");
-        }
-
-        private void linkRefreshRU_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
-        {
-            RefreshReaderUnits();
-        }
+			this.ShowInTaskbar = false;
+			this.TopMost = true;
+			this.Focus();
+			this.BringToFront();
+		}
 
         private void OptionsForm_Load(object sender, EventArgs e)
         {
             try
             {
-                RefreshReaderProviders();
-                //SetConfiguration(KeePassRFIDConfig.GetFromCurrentSession());
-            }
-            catch (COMException)
+				RefreshReaderUnits();
+
+				if (!WinBioConfiguration.DatabaseExists(Shared.DatabaseId))
+				{
+					gpMasterKey.Enabled = false;
+					btnInitialize.Enabled = true;
+				}
+				else
+				{
+					gpMasterKey.Enabled = true;
+					btnInitialize.Enabled = false;
+				}
+
+			}
+            catch (Exception ex)
             {
-                MessageBox.Show(Properties.Resources.RFIDInitError, Properties.Resources.PluginError, MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show(Properties.Resources.FingerprintInitError, Properties.Resources.PluginError, MessageBoxButtons.OK, MessageBoxIcon.Error);
                 this.Close();
             }
-        }
-
-        private void cbReaderProvider_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            RefreshReaderUnits();
-        }
-
-        private void RefreshReaderProviders()
-        {
-            cbReaderProvider.Items.Clear();
-
-            //LibraryManager libmgt = LibraryManager.getInstance();
-            //StringCollection providers = libmgt.getAvailableReaders();
-            //foreach (string provider in providers)
-            //{
-            //    cbReaderProvider.Items.Add(provider);
-            //}
         }
 
         private void RefreshReaderUnits()
         {
             cbReaderUnit.Items.Clear();
 
-            if (cbReaderProvider.SelectedIndex > -1)
-            {
-                //string provider = cbReaderProvider.SelectedItem.ToString();
-                //LibraryManager libmgt = LibraryManager.getInstance();
-                //ReaderProvider readerProvider = libmgt.getReaderProvider(provider);
-                //if (readerProvider != null)
-                //{
-                //    ReaderUnitCollection readers = readerProvider.getReaderList();
-                //    foreach (ReaderUnit reader in readers)
-                //    {
-                //        cbReaderUnit.Items.Add(reader.getName());
-                //    }
-                //}
-            }
-        }
+			var units = WinBio.EnumBiometricUnits(WinBioBiometricType.Fingerprint);
 
-        private void rbtnNFC_CheckedChanged(object sender, EventArgs e)
-        {
-            linkWriteNFC.Enabled = rbtnNFC.Checked;
-        }
+			// Check if we have a connected fingerprint sensor
+			if (units.Length == 0)
+				return;
 
-        private void linkWriteNFC_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
-        {
-            PasswordForm pwdForm = new PasswordForm();
-            if (pwdForm.ShowDialog(this) == DialogResult.OK)
-            {
-                //try
-                //{
-                //    RFIDKeyProvider.ChipAction(new Action<Chip>(delegate (Chip chip)
-                //    {
-                //        // Only tag type 4 supported for now.
-                //        NFCTagCardService nfcsvc = chip.getService(CardServiceType.CST_NFC_TAG) as NFCTagCardService;
-                //        if (nfcsvc == null)
-                //            throw new KeePassRFIDException(Properties.Resources.UnsupportedNFCTag);
-                        
-                //        NdefMessage msg = new NdefMessage();
-                //        msg.addTextRecord(pwdForm.Password);
+			foreach (var reader in units)
+			{
+				cbReaderUnit.Items.Add(string.Format("{0} - {1}", reader.UnitId, reader.Description));
+			}
 
-                //        StorageCardService storage = chip.getService(CardServiceType.CST_STORAGE) as StorageCardService;
-                //        if (storage != null)
-                //        {
-                //            storage.erase();
-                //        }
-                //        nfcsvc.writeNDEF(msg);
-                //    }), GetConfiguration());
+			cbReaderUnit.SelectedIndex = 0;
 
-                //    MessageBox.Show(Properties.Resources.NFCTagWritten, Properties.Resources.Information, MessageBoxButtons.OK, MessageBoxIcon.Information);
-                //}
-                //catch (KeePassRFIDException ex)
-                //{
-                //    MessageBox.Show(ex.Message, Properties.Resources.PluginError, MessageBoxButtons.OK, MessageBoxIcon.Error);
-                //}
-            }
         }
 
         private void btnSave_Click(object sender, EventArgs e)
         {
-            this.DialogResult = DialogResult.OK;
+			if (!WinBioConfiguration.DatabaseExists(Shared.DatabaseId))
+			{
+				MessageBox.Show(Properties.Resources.InitializeDatabase, Properties.Resources.PluginError, MessageBoxButtons.OK, MessageBoxIcon.Error);
+			}
+
+			errorProvider.Clear();
+
+			if (String.IsNullOrEmpty(tbxPassword.Text))
+				errorProvider.SetError(tbxPassword, FingerprintPlugin.Properties.Resources.EmptyPasswordError);
+			else
+			{
+				errorProvider.SetError(tbxPassword, String.Empty);
+
+				if (tbxPassword.Text != tbxVerif.Text)
+					errorProvider.SetError(tbxVerif, FingerprintPlugin.Properties.Resources.PasswordMismatchError);
+				else
+				{
+					errorProvider.SetError(tbxVerif, String.Empty);
+
+					this.DialogResult = DialogResult.OK;
+					this.Close();
+				}
+			}
+
+			this.DialogResult = DialogResult.OK;
             this.Close();
         }
 
-        //public KeePassRFIDConfig GetConfiguration()
-        //{
-        //    KeePassRFIDConfig config = new KeePassRFIDConfig();
-        //    config.ReaderProvider = (cbReaderProvider.SelectedIndex > -1) ? cbReaderProvider.SelectedItem.ToString() : String.Empty;
-        //    config.ReaderUnit = (cbReaderUnit.SelectedIndex > -1) ? cbReaderUnit.SelectedItem.ToString() : String.Empty;
-        //    config.KeyType = rbtnNFC.Checked ? KeyType.NFC : KeyType.CSN;
-        //    return config;
-        //}
-
-        //private void SetConfiguration(KeePassRFIDConfig config)
-        //{
-        //    cbReaderProvider.SelectedItem = config.ReaderProvider;
-        //    cbReaderUnit.SelectedItem = config.ReaderUnit;
-        //    switch (config.KeyType)
-        //    {
-        //        case KeyType.NFC:
-        //            rbtnNFC.Checked = true;
-        //            break;
-        //        default:
-        //            rbtnCSN.Checked = true;
-        //            break;
-        //    }
-        //}
-
-        private void lblSecureID_Click(object sender, EventArgs e)
-        {
-            Process.Start("mailto:dev@islog.com?Subject=KeePass%20RFID%20-%20Secure%20ID");
-        }
-    }
+	}
 }

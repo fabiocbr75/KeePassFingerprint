@@ -340,39 +340,42 @@ namespace WinBioNET
         [DllImport(LibName, EntryPoint = "WinBioFree")]
         private extern static WinBioErrorCode Free(IntPtr address);
 
-        /// <summary>
-        /// Marshals an array of type T at the given address and frees the unmanaged memory afterwards.
-        /// Supports primitive types, structures and enums.
-        /// </summary>
-        /// <typeparam name="T">Type of the array elements.</typeparam>
-        /// <param name="pointer">Address of the array in unmanaged memory.</param>
-        /// <param name="count">Number of elements in the array.</param>
-        /// <returns>Managed array of the given type.</returns>
-        private static T[] MarshalArray<T>(IntPtr pointer, int count)
-        {
-            if (pointer == IntPtr.Zero) return null;
-            try
-            {
-                var offset = pointer;
-                var data = new T[count];
-                var type = typeof (T);
-				if (type.IsEnum) throw new InvalidOperationException(); // type = type.GetEnumUnderlyingType();
-                for (var i = 0; i < count; i++)
-                {
-                    data[i] = (T) Marshal.PtrToStructure(offset, type);
+		/// <summary>
+		/// Marshals an array of type T at the given address and frees the unmanaged memory afterwards.
+		/// Supports primitive types, structures and enums.
+		/// </summary>
+		/// <typeparam name="T">Type of the array elements.</typeparam>
+		/// <param name="pointer">Address of the array in unmanaged memory.</param>
+		/// <param name="count">Number of elements in the array.</param>
+		/// <returns>Managed array of the given type.</returns>
+		private static T[] MarshalArray<T>(IntPtr pointer, int count)
+		{
+			if (pointer == IntPtr.Zero) return null;
+			try
+			{
+				var offset = pointer;
+				var data = new T[count];
+				var type = typeof(T);
+				if (type.IsEnum)
+				{
+					type = Enum.GetUnderlyingType(type);
+				}
+				for (var i = 0; i < count; i++)
+				{
+					data[i] = (T)Marshal.PtrToStructure(offset, type);
 					//offset += Marshal.SizeOf(type);
-					int tmp = offset.ToInt32();
-					tmp  += Marshal.SizeOf(type);
+					long tmp = offset.ToInt64();
+					tmp += Marshal.SizeOf(type);
 					IntPtr tmpPtr = new IntPtr(tmp);
 					offset = tmpPtr;
 
 				}
-                return data;
-            }
-            finally
-            {
-                Free(pointer);
-            }
-        }
-    }
+				return data;
+			}
+			finally
+			{
+				Free(pointer);
+			}
+		}
+	}
 }

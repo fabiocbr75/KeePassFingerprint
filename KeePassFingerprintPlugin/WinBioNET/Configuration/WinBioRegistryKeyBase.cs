@@ -35,8 +35,8 @@ namespace WinBioNET.Configuration
                 var value = field.GetValue(this);
 				if (field.FieldType.IsEnum)
 				{
-					//    value = Convert.ChangeType(value, field.FieldType.GetEnumUnderlyingType());
-					throw new InvalidOperationException();
+					Type underlyingType = Enum.GetUnderlyingType(field.FieldType);
+					value = Convert.ChangeType(value, underlyingType); // x will be int
 				}
 				if (field.FieldType == typeof (Guid))
                 {

@@ -70,6 +70,15 @@ namespace FingerprintPlugin.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Please open the database!.
+        /// </summary>
+        internal static string DbNotOpen {
+            get {
+                return ResourceManager.GetString("DbNotOpen", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Password cannot be empty..
         /// </summary>
         internal static string EmptyPasswordError {
@@ -106,11 +115,30 @@ namespace FingerprintPlugin.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Cannot receive fingerprint unit.
+        ///Please check that your fingerprint reader is properly recognized by the system..
+        /// </summary>
+        internal static string FingerprintInitError {
+            get {
+                return ResourceManager.GetString("FingerprintInitError", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Information.
         /// </summary>
         internal static string Information {
             get {
                 return ResourceManager.GetString("Information", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Please Initialize Unit.
+        /// </summary>
+        internal static string InitializeDatabase {
+            get {
+                return ResourceManager.GetString("InitializeDatabase", resourceCulture);
             }
         }
         
@@ -178,16 +206,6 @@ namespace FingerprintPlugin.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to RFID context cannot be initialized.
-        ///Please check that your RFID/NFC reader is properly recognized by the system and LibLogicalAccess middleware installed (http://lla.islog.com)..
-        /// </summary>
-        internal static string RFIDInitError {
-            get {
-                return ResourceManager.GetString("RFIDInitError", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Looks up a localized string similar to Cannot create reader unit..
         /// </summary>
         internal static string RFIDReaderInitError {
@@ -202,6 +220,16 @@ namespace FingerprintPlugin.Properties {
         internal static string RFIDReaderNotFound {
             get {
                 return ResourceManager.GetString("RFIDReaderNotFound", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap RunAsAdmin1 {
+            get {
+                object obj = ResourceManager.GetObject("RunAsAdmin1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
             }
         }
         

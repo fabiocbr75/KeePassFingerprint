@@ -117,42 +117,11 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="EnableDisableFingerprint" xml:space="preserve">
-    <value>Fingerprint</value>
-  </data>
-  <data name="FingerprintConfigurationError" xml:space="preserve">
-    <value>Fingerprint configuration seems invalid.</value>
-  </data>
-  <data name="RFIDInitError" xml:space="preserve">
-    <value>RFID context cannot be initialized.
-Please check that your RFID/NFC reader is properly recognized by the system and LibLogicalAccess middleware installed (http://lla.islog.com).</value>
-  </data>
-  <data name="RFIDReaderInitError" xml:space="preserve">
-    <value>Cannot create reader unit.</value>
-  </data>
-  <data name="RFIDCommunicationError" xml:space="preserve">
-    <value>RFID communication error.</value>
-  </data>
-  <data name="Error" xml:space="preserve">
-    <value>Error</value>
-  </data>
-  <data name="Information" xml:space="preserve">
-    <value>Information</value>
-  </data>
   <data name="PluginError" xml:space="preserve">
     <value>KeePass Fingerprint Error</value>
   </data>
-  <data name="CardConnectionFailed" xml:space="preserve">
-    <value>Card connection failed.</value>
-  </data>
-  <data name="NoCardInserted" xml:space="preserve">
-    <value>No card inserted.</value>
-  </data>
   <data name="NoChipError" xml:space="preserve">
     <value>RFID chip cannot be retrieved.</value>
-  </data>
-  <data name="ReaderConnectionFailed" xml:space="preserve">
-    <value>Reader connection failed.</value>
   </data>
   <data name="EmptyPasswordError" xml:space="preserve">
     <value>Password cannot be empty.</value>
@@ -160,13 +129,54 @@ Please check that your RFID/NFC reader is properly recognized by the system and 
   <data name="PasswordMismatchError" xml:space="preserve">
     <value>Password doesn't match.</value>
   </data>
+  <data name="CardConnectionFailed" xml:space="preserve">
+    <value>Card connection failed.</value>
+  </data>
+  <data name="RFIDReaderInitError" xml:space="preserve">
+    <value>Cannot create reader unit.</value>
+  </data>
+  <data name="FingerprintConfigurationError" xml:space="preserve">
+    <value>Fingerprint configuration seems invalid.</value>
+  </data>
+  <data name="NoCardInserted" xml:space="preserve">
+    <value>No card inserted.</value>
+  </data>
+  <data name="EnableDisableFingerprint" xml:space="preserve">
+    <value>Fingerprint</value>
+  </data>
+  <data name="NFCTagWritten" xml:space="preserve">
+    <value>NFC Tag written.</value>
+  </data>
+  <data name="FingerprintInitError" xml:space="preserve">
+    <value>Cannot receive fingerprint unit.
+Please check that your fingerprint reader is properly recognized by the system.</value>
+  </data>
   <data name="RFIDReaderNotFound" xml:space="preserve">
     <value>Specified RFID reader cannot be found.</value>
+  </data>
+  <data name="Information" xml:space="preserve">
+    <value>Information</value>
+  </data>
+  <data name="Error" xml:space="preserve">
+    <value>Error</value>
+  </data>
+  <data name="DbNotOpen" xml:space="preserve">
+    <value>Please open the database!</value>
+  </data>
+  <data name="ReaderConnectionFailed" xml:space="preserve">
+    <value>Reader connection failed.</value>
+  </data>
+  <data name="RFIDCommunicationError" xml:space="preserve">
+    <value>RFID communication error.</value>
+  </data>
+  <data name="InitializeDatabase" xml:space="preserve">
+    <value>Please Initialize Unit</value>
   </data>
   <data name="UnsupportedNFCTag" xml:space="preserve">
     <value>Unsupported NFC tag.</value>
   </data>
-  <data name="NFCTagWritten" xml:space="preserve">
-    <value>NFC Tag written.</value>
+  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="RunAsAdmin1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\RunAsAdmin.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>

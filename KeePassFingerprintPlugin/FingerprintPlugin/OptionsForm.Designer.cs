@@ -35,24 +35,23 @@
 			this.panelLeft = new System.Windows.Forms.Panel();
 			this.imgLogo = new System.Windows.Forms.PictureBox();
 			this.lblProductName = new System.Windows.Forms.Label();
-			this.gpKeyType = new System.Windows.Forms.GroupBox();
-			this.lblSecureID = new System.Windows.Forms.Label();
-			this.linkWriteNFC = new System.Windows.Forms.LinkLabel();
-			this.rbtnSecureID = new System.Windows.Forms.RadioButton();
-			this.rbtnNFC = new System.Windows.Forms.RadioButton();
-			this.rbtnCSN = new System.Windows.Forms.RadioButton();
 			this.gpReaderConfig = new System.Windows.Forms.GroupBox();
-			this.linkRefreshRU = new System.Windows.Forms.LinkLabel();
+			this.btnInitialize = new System.Windows.Forms.Button();
 			this.cbReaderUnit = new System.Windows.Forms.ComboBox();
 			this.lblReaderUnit = new System.Windows.Forms.Label();
-			this.cbReaderProvider = new System.Windows.Forms.ComboBox();
-			this.lblReaderProvider = new System.Windows.Forms.Label();
 			this.toolTip = new System.Windows.Forms.ToolTip(this.components);
+			this.gpMasterKey = new System.Windows.Forms.GroupBox();
+			this.lblVerif = new System.Windows.Forms.Label();
+			this.tbxVerif = new System.Windows.Forms.TextBox();
+			this.tbxPassword = new System.Windows.Forms.TextBox();
+			this.lblPassword = new System.Windows.Forms.Label();
+			this.errorProvider = new System.Windows.Forms.ErrorProvider(this.components);
 			this.panelBottom.SuspendLayout();
 			this.panelLeft.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)(this.imgLogo)).BeginInit();
-			this.gpKeyType.SuspendLayout();
 			this.gpReaderConfig.SuspendLayout();
+			this.gpMasterKey.SuspendLayout();
+			((System.ComponentModel.ISupportInitialize)(this.errorProvider)).BeginInit();
 			this.SuspendLayout();
 			// 
 			// panelBottom
@@ -111,7 +110,6 @@
 			this.imgLogo.TabIndex = 2;
 			this.imgLogo.TabStop = false;
 			this.toolTip.SetToolTip(this.imgLogo, "Open www.islog.com");
-			this.imgLogo.Click += new System.EventHandler(this.imgLogo_Click);
 			// 
 			// lblProductName
 			// 
@@ -125,115 +123,38 @@
 			this.lblProductName.TabIndex = 2;
 			this.lblProductName.Text = "Fingerprint";
 			// 
-			// gpKeyType
-			// 
-			this.gpKeyType.Controls.Add(this.lblSecureID);
-			this.gpKeyType.Controls.Add(this.linkWriteNFC);
-			this.gpKeyType.Controls.Add(this.rbtnSecureID);
-			this.gpKeyType.Controls.Add(this.rbtnNFC);
-			this.gpKeyType.Controls.Add(this.rbtnCSN);
-			this.gpKeyType.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.gpKeyType.Location = new System.Drawing.Point(142, 75);
-			this.gpKeyType.Name = "gpKeyType";
-			this.gpKeyType.Size = new System.Drawing.Size(319, 229);
-			this.gpKeyType.TabIndex = 2;
-			this.gpKeyType.TabStop = false;
-			this.gpKeyType.Text = "Key Type";
-			// 
-			// lblSecureID
-			// 
-			this.lblSecureID.AutoSize = true;
-			this.lblSecureID.Cursor = System.Windows.Forms.Cursors.Hand;
-			this.lblSecureID.Location = new System.Drawing.Point(78, 149);
-			this.lblSecureID.Name = "lblSecureID";
-			this.lblSecureID.Size = new System.Drawing.Size(175, 13);
-			this.lblSecureID.TabIndex = 4;
-			this.lblSecureID.Text = "Secure ID (3-way auth, SAM, HSM)";
-			this.toolTip.SetToolTip(this.lblSecureID, "Contact for more information");
-			this.lblSecureID.Click += new System.EventHandler(this.lblSecureID_Click);
-			// 
-			// linkWriteNFC
-			// 
-			this.linkWriteNFC.AutoSize = true;
-			this.linkWriteNFC.Cursor = System.Windows.Forms.Cursors.Hand;
-			this.linkWriteNFC.Enabled = false;
-			this.linkWriteNFC.Location = new System.Drawing.Point(137, 108);
-			this.linkWriteNFC.Name = "linkWriteNFC";
-			this.linkWriteNFC.Size = new System.Drawing.Size(91, 13);
-			this.linkWriteNFC.TabIndex = 3;
-			this.linkWriteNFC.TabStop = true;
-			this.linkWriteNFC.Text = "Write (text record)";
-			this.toolTip.SetToolTip(this.linkWriteNFC, "Write password to a NFC Tag");
-			this.linkWriteNFC.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkWriteNFC_LinkClicked);
-			// 
-			// rbtnSecureID
-			// 
-			this.rbtnSecureID.AutoSize = true;
-			this.rbtnSecureID.Cursor = System.Windows.Forms.Cursors.Arrow;
-			this.rbtnSecureID.Enabled = false;
-			this.rbtnSecureID.Location = new System.Drawing.Point(63, 149);
-			this.rbtnSecureID.Name = "rbtnSecureID";
-			this.rbtnSecureID.Size = new System.Drawing.Size(14, 13);
-			this.rbtnSecureID.TabIndex = 2;
-			this.rbtnSecureID.UseVisualStyleBackColor = true;
-			// 
-			// rbtnNFC
-			// 
-			this.rbtnNFC.AutoSize = true;
-			this.rbtnNFC.Location = new System.Drawing.Point(63, 106);
-			this.rbtnNFC.Name = "rbtnNFC";
-			this.rbtnNFC.Size = new System.Drawing.Size(68, 17);
-			this.rbtnNFC.TabIndex = 1;
-			this.rbtnNFC.Text = "NFC Tag";
-			this.rbtnNFC.UseVisualStyleBackColor = true;
-			this.rbtnNFC.CheckedChanged += new System.EventHandler(this.rbtnNFC_CheckedChanged);
-			// 
-			// rbtnCSN
-			// 
-			this.rbtnCSN.AutoSize = true;
-			this.rbtnCSN.Checked = true;
-			this.rbtnCSN.Location = new System.Drawing.Point(63, 63);
-			this.rbtnCSN.Name = "rbtnCSN";
-			this.rbtnCSN.Size = new System.Drawing.Size(115, 17);
-			this.rbtnCSN.TabIndex = 0;
-			this.rbtnCSN.TabStop = true;
-			this.rbtnCSN.Text = "Chip Serial Number";
-			this.rbtnCSN.UseVisualStyleBackColor = true;
-			// 
 			// gpReaderConfig
 			// 
-			this.gpReaderConfig.Controls.Add(this.linkRefreshRU);
+			this.gpReaderConfig.Controls.Add(this.btnInitialize);
 			this.gpReaderConfig.Controls.Add(this.cbReaderUnit);
 			this.gpReaderConfig.Controls.Add(this.lblReaderUnit);
-			this.gpReaderConfig.Controls.Add(this.cbReaderProvider);
-			this.gpReaderConfig.Controls.Add(this.lblReaderProvider);
 			this.gpReaderConfig.Dock = System.Windows.Forms.DockStyle.Top;
 			this.gpReaderConfig.Location = new System.Drawing.Point(142, 0);
 			this.gpReaderConfig.Name = "gpReaderConfig";
-			this.gpReaderConfig.Size = new System.Drawing.Size(319, 75);
+			this.gpReaderConfig.Size = new System.Drawing.Size(319, 118);
 			this.gpReaderConfig.TabIndex = 3;
 			this.gpReaderConfig.TabStop = false;
 			this.gpReaderConfig.Text = "Reader Configuration";
 			// 
-			// linkRefreshRU
+			// btnInitialize
 			// 
-			this.linkRefreshRU.AutoSize = true;
-			this.linkRefreshRU.Cursor = System.Windows.Forms.Cursors.Hand;
-			this.linkRefreshRU.Location = new System.Drawing.Point(259, 49);
-			this.linkRefreshRU.Name = "linkRefreshRU";
-			this.linkRefreshRU.Size = new System.Drawing.Size(39, 13);
-			this.linkRefreshRU.TabIndex = 4;
-			this.linkRefreshRU.TabStop = true;
-			this.linkRefreshRU.Text = "refresh";
-			this.toolTip.SetToolTip(this.linkRefreshRU, "Refresh reader unit list");
-			this.linkRefreshRU.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkRefreshRU_LinkClicked);
+			this.btnInitialize.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
+			this.btnInitialize.Image = global::FingerprintPlugin.Properties.Resources.RunAsAdmin1;
+			this.btnInitialize.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+			this.btnInitialize.Location = new System.Drawing.Point(99, 65);
+			this.btnInitialize.Name = "btnInitialize";
+			this.btnInitialize.Size = new System.Drawing.Size(154, 47);
+			this.btnInitialize.TabIndex = 4;
+			this.btnInitialize.Text = "Initialize Unit";
+			this.btnInitialize.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+			this.btnInitialize.UseVisualStyleBackColor = true;
 			// 
 			// cbReaderUnit
 			// 
 			this.cbReaderUnit.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
 			this.cbReaderUnit.DropDownWidth = 220;
 			this.cbReaderUnit.FormattingEnabled = true;
-			this.cbReaderUnit.Location = new System.Drawing.Point(99, 46);
+			this.cbReaderUnit.Location = new System.Drawing.Point(99, 32);
 			this.cbReaderUnit.Name = "cbReaderUnit";
 			this.cbReaderUnit.Size = new System.Drawing.Size(154, 21);
 			this.cbReaderUnit.TabIndex = 3;
@@ -241,30 +162,63 @@
 			// lblReaderUnit
 			// 
 			this.lblReaderUnit.AutoSize = true;
-			this.lblReaderUnit.Location = new System.Drawing.Point(26, 49);
+			this.lblReaderUnit.Location = new System.Drawing.Point(26, 35);
 			this.lblReaderUnit.Name = "lblReaderUnit";
 			this.lblReaderUnit.Size = new System.Drawing.Size(67, 13);
 			this.lblReaderUnit.TabIndex = 2;
 			this.lblReaderUnit.Text = "Reader Unit:";
 			// 
-			// cbReaderProvider
+			// gpMasterKey
 			// 
-			this.cbReaderProvider.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-			this.cbReaderProvider.FormattingEnabled = true;
-			this.cbReaderProvider.Location = new System.Drawing.Point(99, 19);
-			this.cbReaderProvider.Name = "cbReaderProvider";
-			this.cbReaderProvider.Size = new System.Drawing.Size(154, 21);
-			this.cbReaderProvider.TabIndex = 1;
-			this.cbReaderProvider.SelectedIndexChanged += new System.EventHandler(this.cbReaderProvider_SelectedIndexChanged);
+			this.gpMasterKey.Controls.Add(this.lblVerif);
+			this.gpMasterKey.Controls.Add(this.tbxVerif);
+			this.gpMasterKey.Controls.Add(this.tbxPassword);
+			this.gpMasterKey.Controls.Add(this.lblPassword);
+			this.gpMasterKey.Dock = System.Windows.Forms.DockStyle.Top;
+			this.gpMasterKey.Location = new System.Drawing.Point(142, 118);
+			this.gpMasterKey.Name = "gpMasterKey";
+			this.gpMasterKey.Size = new System.Drawing.Size(319, 174);
+			this.gpMasterKey.TabIndex = 4;
+			this.gpMasterKey.TabStop = false;
+			this.gpMasterKey.Text = "Master Key";
 			// 
-			// lblReaderProvider
+			// lblVerif
 			// 
-			this.lblReaderProvider.AutoSize = true;
-			this.lblReaderProvider.Location = new System.Drawing.Point(6, 22);
-			this.lblReaderProvider.Name = "lblReaderProvider";
-			this.lblReaderProvider.Size = new System.Drawing.Size(87, 13);
-			this.lblReaderProvider.TabIndex = 0;
-			this.lblReaderProvider.Text = "Reader Provider:";
+			this.lblVerif.AutoSize = true;
+			this.lblVerif.Location = new System.Drawing.Point(31, 68);
+			this.lblVerif.Name = "lblVerif";
+			this.lblVerif.Size = new System.Drawing.Size(62, 13);
+			this.lblVerif.TabIndex = 9;
+			this.lblVerif.Text = "Verification:";
+			// 
+			// tbxVerif
+			// 
+			this.tbxVerif.Location = new System.Drawing.Point(99, 65);
+			this.tbxVerif.Name = "tbxVerif";
+			this.tbxVerif.PasswordChar = '*';
+			this.tbxVerif.Size = new System.Drawing.Size(154, 20);
+			this.tbxVerif.TabIndex = 7;
+			// 
+			// tbxPassword
+			// 
+			this.tbxPassword.Location = new System.Drawing.Point(99, 39);
+			this.tbxPassword.Name = "tbxPassword";
+			this.tbxPassword.PasswordChar = '*';
+			this.tbxPassword.Size = new System.Drawing.Size(154, 20);
+			this.tbxPassword.TabIndex = 6;
+			// 
+			// lblPassword
+			// 
+			this.lblPassword.AutoSize = true;
+			this.lblPassword.Location = new System.Drawing.Point(37, 42);
+			this.lblPassword.Name = "lblPassword";
+			this.lblPassword.Size = new System.Drawing.Size(56, 13);
+			this.lblPassword.TabIndex = 8;
+			this.lblPassword.Text = "Password:";
+			// 
+			// errorProvider
+			// 
+			this.errorProvider.ContainerControl = this;
 			// 
 			// OptionsForm
 			// 
@@ -273,7 +227,7 @@
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			this.CancelButton = this.btnCancel;
 			this.ClientSize = new System.Drawing.Size(461, 334);
-			this.Controls.Add(this.gpKeyType);
+			this.Controls.Add(this.gpMasterKey);
 			this.Controls.Add(this.gpReaderConfig);
 			this.Controls.Add(this.panelBottom);
 			this.Controls.Add(this.panelLeft);
@@ -286,10 +240,11 @@
 			this.panelLeft.ResumeLayout(false);
 			this.panelLeft.PerformLayout();
 			((System.ComponentModel.ISupportInitialize)(this.imgLogo)).EndInit();
-			this.gpKeyType.ResumeLayout(false);
-			this.gpKeyType.PerformLayout();
 			this.gpReaderConfig.ResumeLayout(false);
 			this.gpReaderConfig.PerformLayout();
+			this.gpMasterKey.ResumeLayout(false);
+			this.gpMasterKey.PerformLayout();
+			((System.ComponentModel.ISupportInitialize)(this.errorProvider)).EndInit();
 			this.ResumeLayout(false);
 
 		}
@@ -302,18 +257,16 @@
 		private System.Windows.Forms.Panel panelLeft;
 		private System.Windows.Forms.PictureBox imgLogo;
 		private System.Windows.Forms.Label lblProductName;
-		private System.Windows.Forms.GroupBox gpKeyType;
 		private System.Windows.Forms.GroupBox gpReaderConfig;
-		private System.Windows.Forms.Label lblReaderProvider;
-		private System.Windows.Forms.ComboBox cbReaderProvider;
 		private System.Windows.Forms.ComboBox cbReaderUnit;
 		private System.Windows.Forms.Label lblReaderUnit;
-		private System.Windows.Forms.LinkLabel linkRefreshRU;
-		private System.Windows.Forms.RadioButton rbtnCSN;
-		private System.Windows.Forms.RadioButton rbtnNFC;
-		private System.Windows.Forms.RadioButton rbtnSecureID;
-		private System.Windows.Forms.LinkLabel linkWriteNFC;
 		private System.Windows.Forms.ToolTip toolTip;
-		private System.Windows.Forms.Label lblSecureID;
+		private System.Windows.Forms.GroupBox gpMasterKey;
+		private System.Windows.Forms.Label lblVerif;
+		private System.Windows.Forms.TextBox tbxVerif;
+		private System.Windows.Forms.TextBox tbxPassword;
+		private System.Windows.Forms.Label lblPassword;
+		private System.Windows.Forms.Button btnInitialize;
+		private System.Windows.Forms.ErrorProvider errorProvider;
 	}
 }
