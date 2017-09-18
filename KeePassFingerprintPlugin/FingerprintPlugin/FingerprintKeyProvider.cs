@@ -1,6 +1,7 @@
 ﻿using KeePassLib.Keys;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Text;
 using System.Windows.Forms;
 
@@ -20,12 +21,20 @@ namespace FingerprintPlugin
 
 		public override byte[] GetKey(KeyProviderQueryContext ctx)
 		{
-			MessageBox.Show(Properties.Resources.FingerprintConfigurationError, Properties.Resources.PluginError, MessageBoxButtons.OK, MessageBoxIcon.Error);
 
-			CheckFinger checkFinger = new CheckFinger();
-			checkFinger.ShowDialog();
+			//MessageBox.Show(Properties.Resources.FingerprintConfigurationError, Properties.Resources.PluginError, MessageBoxButtons.OK, MessageBoxIcon.Error);
+			string pwd = string.Empty;
+			//CheckFinger checkFinger = new CheckFinger();
+			//checkFinger.ShowDialog();
 
-			return Encoding.ASCII.GetBytes(@"password");
+			//if (checkFinger.ShowDialog() == DialogResult.OK)
+			{
+				string dbName = Path.GetFileNameWithoutExtension(ctx.DatabasePath);
+				DbMasterKeyManager db = new DbMasterKeyManager();
+				pwd = db.GetMasterKey(dbName);
+			}
+
+			return Encoding.ASCII.GetBytes(pwd);
 		}
 	}
 }

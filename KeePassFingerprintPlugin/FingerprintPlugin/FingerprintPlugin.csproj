@@ -110,7 +110,6 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
-    <None Include="RunAsAdmin.jpg" />
   </ItemGroup>
   <ItemGroup>
     <None Include="RunAsAdmin.png" />

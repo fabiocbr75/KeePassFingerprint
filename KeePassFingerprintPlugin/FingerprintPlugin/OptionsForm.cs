@@ -136,8 +136,8 @@ namespace FingerprintPlugin
 			}
 
 			DbMasterKeyManager dbManager = new DbMasterKeyManager();
-			var protectedPassword = tbxPassword.Text.Protect("fingerprint");
-			dbManager.Save(DatabaseName, protectedPassword);
+			dbManager.AddOrUpdate(DatabaseName, tbxPassword.Text);
+			dbManager.Save();
 
 			this.DialogResult = DialogResult.OK;
 			this.Close();
