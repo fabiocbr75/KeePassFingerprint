@@ -53,9 +53,9 @@
 			this.gpMasterKey.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)(this.errorProvider)).BeginInit();
 			this.SuspendLayout();
-			// 
+			//
 			// panelBottom
-			// 
+			//
 			this.panelBottom.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
 			this.panelBottom.Controls.Add(this.btnCancel);
 			this.panelBottom.Controls.Add(this.btnSave);
@@ -64,9 +64,9 @@
 			this.panelBottom.Name = "panelBottom";
 			this.panelBottom.Size = new System.Drawing.Size(319, 30);
 			this.panelBottom.TabIndex = 0;
-			// 
+			//
 			// btnCancel
-			// 
+			//
 			this.btnCancel.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
 			this.btnCancel.DialogResult = System.Windows.Forms.DialogResult.Cancel;
 			this.btnCancel.Location = new System.Drawing.Point(161, 2);
@@ -75,9 +75,9 @@
 			this.btnCancel.TabIndex = 2;
 			this.btnCancel.Text = "Cancel";
 			this.btnCancel.UseVisualStyleBackColor = true;
-			// 
+			//
 			// btnSave
-			// 
+			//
 			this.btnSave.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
 			this.btnSave.Location = new System.Drawing.Point(80, 2);
 			this.btnSave.Name = "btnSave";
@@ -86,9 +86,9 @@
 			this.btnSave.Text = "Save";
 			this.btnSave.UseVisualStyleBackColor = true;
 			this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
-			// 
+			//
 			// panelLeft
-			// 
+			//
 			this.panelLeft.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
 			this.panelLeft.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
 			this.panelLeft.Controls.Add(this.imgLogo);
@@ -98,9 +98,9 @@
 			this.panelLeft.Name = "panelLeft";
 			this.panelLeft.Size = new System.Drawing.Size(142, 334);
 			this.panelLeft.TabIndex = 1;
-			// 
+			//
 			// imgLogo
-			// 
+			//
 			this.imgLogo.Cursor = System.Windows.Forms.Cursors.Hand;
 			this.imgLogo.Dock = System.Windows.Forms.DockStyle.Bottom;
 			this.imgLogo.Location = new System.Drawing.Point(0, 241);
@@ -110,9 +110,9 @@
 			this.imgLogo.TabIndex = 2;
 			this.imgLogo.TabStop = false;
 			this.toolTip.SetToolTip(this.imgLogo, "Open www.islog.com");
-			// 
+			//
 			// lblProductName
-			// 
+			//
 			this.lblProductName.AutoSize = true;
 			this.lblProductName.Dock = System.Windows.Forms.DockStyle.Top;
 			this.lblProductName.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -122,9 +122,9 @@
 			this.lblProductName.Size = new System.Drawing.Size(107, 22);
 			this.lblProductName.TabIndex = 2;
 			this.lblProductName.Text = "Fingerprint";
-			// 
+			//
 			// gpReaderConfig
-			// 
+			//
 			this.gpReaderConfig.Controls.Add(this.btnInitialize);
 			this.gpReaderConfig.Controls.Add(this.cbReaderUnit);
 			this.gpReaderConfig.Controls.Add(this.lblReaderUnit);
@@ -135,9 +135,9 @@
 			this.gpReaderConfig.TabIndex = 3;
 			this.gpReaderConfig.TabStop = false;
 			this.gpReaderConfig.Text = "Reader Configuration";
-			// 
+			//
 			// btnInitialize
-			// 
+			//
 			this.btnInitialize.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
 			this.btnInitialize.Image = global::FingerprintPlugin.Properties.Resources.RunAsAdmin1;
 			this.btnInitialize.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -148,9 +148,10 @@
 			this.btnInitialize.Text = "Initialize Unit";
 			this.btnInitialize.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
 			this.btnInitialize.UseVisualStyleBackColor = true;
-			// 
+			this.btnInitialize.Click += new System.EventHandler(this.btnInitialize_Click);
+			//
 			// cbReaderUnit
-			// 
+			//
 			this.cbReaderUnit.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
 			this.cbReaderUnit.DropDownWidth = 220;
 			this.cbReaderUnit.FormattingEnabled = true;
@@ -158,18 +159,18 @@
 			this.cbReaderUnit.Name = "cbReaderUnit";
 			this.cbReaderUnit.Size = new System.Drawing.Size(154, 21);
 			this.cbReaderUnit.TabIndex = 3;
-			// 
+			//
 			// lblReaderUnit
-			// 
+			//
 			this.lblReaderUnit.AutoSize = true;
 			this.lblReaderUnit.Location = new System.Drawing.Point(26, 35);
 			this.lblReaderUnit.Name = "lblReaderUnit";
 			this.lblReaderUnit.Size = new System.Drawing.Size(67, 13);
 			this.lblReaderUnit.TabIndex = 2;
 			this.lblReaderUnit.Text = "Reader Unit:";
-			// 
+			//
 			// gpMasterKey
-			// 
+			//
 			this.gpMasterKey.Controls.Add(this.lblVerif);
 			this.gpMasterKey.Controls.Add(this.tbxVerif);
 			this.gpMasterKey.Controls.Add(this.tbxPassword);
@@ -181,47 +182,47 @@
 			this.gpMasterKey.TabIndex = 4;
 			this.gpMasterKey.TabStop = false;
 			this.gpMasterKey.Text = "Master Key";
-			// 
+			//
 			// lblVerif
-			// 
+			//
 			this.lblVerif.AutoSize = true;
 			this.lblVerif.Location = new System.Drawing.Point(31, 68);
 			this.lblVerif.Name = "lblVerif";
 			this.lblVerif.Size = new System.Drawing.Size(62, 13);
 			this.lblVerif.TabIndex = 9;
 			this.lblVerif.Text = "Verification:";
-			// 
+			//
 			// tbxVerif
-			// 
+			//
 			this.tbxVerif.Location = new System.Drawing.Point(99, 65);
 			this.tbxVerif.Name = "tbxVerif";
 			this.tbxVerif.PasswordChar = '*';
 			this.tbxVerif.Size = new System.Drawing.Size(154, 20);
 			this.tbxVerif.TabIndex = 7;
-			// 
+			//
 			// tbxPassword
-			// 
+			//
 			this.tbxPassword.Location = new System.Drawing.Point(99, 39);
 			this.tbxPassword.Name = "tbxPassword";
 			this.tbxPassword.PasswordChar = '*';
 			this.tbxPassword.Size = new System.Drawing.Size(154, 20);
 			this.tbxPassword.TabIndex = 6;
-			// 
+			//
 			// lblPassword
-			// 
+			//
 			this.lblPassword.AutoSize = true;
 			this.lblPassword.Location = new System.Drawing.Point(37, 42);
 			this.lblPassword.Name = "lblPassword";
 			this.lblPassword.Size = new System.Drawing.Size(56, 13);
 			this.lblPassword.TabIndex = 8;
 			this.lblPassword.Text = "Password:";
-			// 
+			//
 			// errorProvider
-			// 
+			//
 			this.errorProvider.ContainerControl = this;
-			// 
+			//
 			// OptionsForm
-			// 
+			//
 			this.AcceptButton = this.btnSave;
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;

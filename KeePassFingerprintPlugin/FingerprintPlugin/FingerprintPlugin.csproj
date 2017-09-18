@@ -54,9 +54,13 @@
       <HintPath>..\Ext\KeePass.exe</HintPath>
       <Private>False</Private>
     </Reference>
+    <Reference Include="Newtonsoft.Json, Version=10.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.10.0.3\lib\net35\Newtonsoft.Json.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Drawing" />
+    <Reference Include="System.Security" />
     <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
   </ItemGroup>
@@ -67,6 +71,8 @@
     <Compile Include="CheckFinger.Designer.cs">
       <DependentUpon>CheckFinger.cs</DependentUpon>
     </Compile>
+    <Compile Include="DbMasterKey.cs" />
+    <Compile Include="DbMasterKeyManager.cs" />
     <Compile Include="FingerprintKeyProvider.cs" />
     <Compile Include="FingerprintPlugin.cs" />
     <Compile Include="OptionsForm.cs">
@@ -101,6 +107,10 @@
       <Project>{6d7ebd5f-56da-4d8b-81c6-95c980f3d6f5}</Project>
       <Name>WinBioNET</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
+    <None Include="RunAsAdmin.jpg" />
   </ItemGroup>
   <ItemGroup>
     <None Include="RunAsAdmin.png" />

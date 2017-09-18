@@ -10,7 +10,10 @@ namespace FingerprintPlugin
 	{
 		public override string Name
 		{
-			get { return "Fingerprint Key Provider"; }
+			get
+			{
+				return "Fingerprint Key Provider";
+			}
 		}
 
 		public override bool GetKeyMightShowGui => true;
@@ -21,7 +24,7 @@ namespace FingerprintPlugin
 
 			CheckFinger checkFinger = new CheckFinger();
 			checkFinger.ShowDialog();
-			
+
 			return Encoding.ASCII.GetBytes(@"password");
 		}
 	}

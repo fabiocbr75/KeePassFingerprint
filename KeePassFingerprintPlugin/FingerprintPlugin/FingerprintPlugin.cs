@@ -1,6 +1,7 @@
 ﻿using KeePass.Plugins;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Text;
 using System.Windows.Forms;
 using WinBioNET;
@@ -48,9 +49,10 @@ namespace FingerprintPlugin
 				return;
 			}
 
-			var OptionsForm = new OptionsForm();
+			var optionsForm = new OptionsForm();
+			optionsForm.DatabaseName = Path.GetFileNameWithoutExtension(this.m_host.Database.IOConnectionInfo.Path);
 
-			if (OptionsForm.ShowDialog() == DialogResult.OK)
+			if (optionsForm.ShowDialog() == DialogResult.OK)
 			{
 				//var pwd = pwdForm.Password;
 				//KeePassRFIDConfig config = options.GetConfiguration();
