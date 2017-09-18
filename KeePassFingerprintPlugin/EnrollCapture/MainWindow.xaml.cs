@@ -24,7 +24,11 @@ namespace EnrollCapture
 	public partial class MainWindow : Window
 	{
 		public static readonly Guid DatabaseId = new Guid("17DE1D0D-BD7F-4868-AEC6-D385DFE43561");
-		public int UnitId { get; set; }
+		public int UnitId
+		{
+			get;
+			set;
+		}
 		public MainWindow()
 		{
 			InitializeComponent();
@@ -33,7 +37,9 @@ namespace EnrollCapture
 		public void InitialStart()
 		{
 			if (WinBioConfiguration.DatabaseExists(DatabaseId))
+			{
 				return;
+			}
 
 			Messages.Items.Add(string.Format("Creating database: {0}", DatabaseId));
 			WinBioConfiguration.AddDatabase(DatabaseId, UnitId);
@@ -61,13 +67,17 @@ namespace EnrollCapture
 				TimeSpan timeout = TimeSpan.FromMilliseconds(timeoutMilliseconds);
 
 				if (serviceMode == ServiceMode.Start)
+				{
 					goto start;
+				}
 
 				service.Stop();
 				service.WaitForStatus(ServiceControllerStatus.Stopped, timeout);
 
 				if (serviceMode == ServiceMode.Stop)
+				{
 					return;
+				}
 
 				service.Start();
 
@@ -80,7 +90,7 @@ namespace EnrollCapture
 			}
 			catch
 			{
-				
+
 			}
 		}
 
