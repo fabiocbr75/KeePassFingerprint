@@ -24,14 +24,16 @@ namespace FingerprintPlugin
 
 			//MessageBox.Show(Properties.Resources.FingerprintConfigurationError, Properties.Resources.PluginError, MessageBoxButtons.OK, MessageBoxIcon.Error);
 			string pwd = string.Empty;
-			//CheckFinger checkFinger = new CheckFinger();
-			//checkFinger.ShowDialog();
 
-			//if (checkFinger.ShowDialog() == DialogResult.OK)
+			string dbName = Path.GetFileNameWithoutExtension(ctx.DatabasePath);
+			DbMasterKeyManager db = new DbMasterKeyManager();
+
+			CheckFinger checkFinger = new CheckFinger();
+			checkFinger.UnitId = db.GetUnitId(dbName);
+
+			if (checkFinger.ShowDialog() == DialogResult.OK)
 			{
-				string dbName = Path.GetFileNameWithoutExtension(ctx.DatabasePath);
-				DbMasterKeyManager db = new DbMasterKeyManager();
-				pwd = db.GetMasterKey(dbName);
+				pwd = db.GetMasterKey(dbName, checkFinger.TemplateFingerGuid);
 			}
 
 			return Encoding.ASCII.GetBytes(pwd);

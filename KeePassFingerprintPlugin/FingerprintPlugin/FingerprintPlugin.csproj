@@ -114,6 +114,9 @@
   <ItemGroup>
     <None Include="RunAsAdmin.png" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="fingerprint.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
     <PostBuildEvent>copy $(SolutionDir)\Ext\KeePass.exe $(TargetDir)..\</PostBuildEvent>

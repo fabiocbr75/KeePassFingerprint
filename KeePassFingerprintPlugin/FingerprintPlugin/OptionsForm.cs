@@ -135,9 +135,22 @@ namespace FingerprintPlugin
 				}
 			}
 
+			CheckFinger checkFinger = new CheckFinger();
+
+			var selectedInit = (FingerprintUnit)cbReaderUnit.SelectedItem;
+			checkFinger.UnitId = selectedInit.Id;
+			checkFinger.StartEnrollment = true;
+
+			if (checkFinger.ShowDialog() != DialogResult.OK)
+			{
+				MessageBox.Show(Properties.Resources.FingerprintConfigurationError, Properties.Resources.PluginError, MessageBoxButtons.OK, MessageBoxIcon.Error);
+				return;
+			}
+
 			DbMasterKeyManager dbManager = new DbMasterKeyManager();
-			dbManager.AddOrUpdate(DatabaseName, tbxPassword.Text);
+			dbManager.AddOrUpdate(DatabaseName, tbxPassword.Text, checkFinger.TemplateFingerGuid, checkFinger.UnitId);
 			dbManager.Save();
+
 
 			this.DialogResult = DialogResult.OK;
 			this.Close();

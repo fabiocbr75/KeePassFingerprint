@@ -31,23 +31,36 @@ namespace FingerprintPlugin
 			}
 
 		}
-		public void AddOrUpdate(string databaseName, string masterKey)
+		public void AddOrUpdate(string databaseName, string masterKey, Guid templateGuid, int unitId)
 		{
-			var protectedPassword = masterKey.Protect("USE_FINGERPRINT_TEMPLATE");
+			var protectedPassword = masterKey.Protect(templateGuid.ToString());
 
 			var idx = _db.FindIndex(x => x.DatabaseName == databaseName);
 			if (idx >= 0)
+			{
 				_db.RemoveAt(idx);
+			}
 
-			_db.Add(new DbMasterKey() { DatabaseName = databaseName, MasterKey = protectedPassword });
+			_db.Add(new DbMasterKey()
+			{
+				DatabaseName = databaseName, MasterKey = protectedPassword, UnitId = unitId
+			});
 		}
 
-		public string GetMasterKey(string databaseName)
+		public string GetMasterKey(string databaseName, Guid templateGuid)
 		{
 			var pwd = _db.Where(x => x.DatabaseName == databaseName).FirstOrDefault();
 
-			return (pwd == null ? "" : pwd.MasterKey.Unprotect("USE_FINGERPRINT_TEMPLATE"));
+			return (pwd == null ? "" : pwd.MasterKey.Unprotect(templateGuid.ToString()));
 		}
+
+		public int GetUnitId(string databaseName)
+		{
+			var pwd = _db.Where(x => x.DatabaseName == databaseName).FirstOrDefault();
+
+			return (pwd == null ? -1 : pwd.UnitId);
+		}
+
 
 		public void Save()
 		{

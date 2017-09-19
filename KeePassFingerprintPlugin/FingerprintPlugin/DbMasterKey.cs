@@ -14,5 +14,11 @@
 			set;
 		}
 
+		public int UnitId
+		{
+			get;
+			set;
+		}
+
 	}
 }
