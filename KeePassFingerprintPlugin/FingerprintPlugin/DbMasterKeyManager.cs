@@ -24,7 +24,7 @@ namespace FingerprintPlugin
 				}
 
 			}
-			catch (IOException e)
+			catch (Exception e)
 			{
 				// Inform the user that an error occurred.
 				MessageBox.Show("An error occurred while attempting to OpenOrCreate a DbMasterKey.dat" + "The error is:" + e.ToString());
@@ -33,18 +33,28 @@ namespace FingerprintPlugin
 		}
 		public void AddOrUpdate(string databaseName, string masterKey, Guid templateGuid, int unitId)
 		{
-			var protectedPassword = masterKey.Protect(templateGuid.ToString());
-
-			var idx = _db.FindIndex(x => x.DatabaseName == databaseName);
-			if (idx >= 0)
+			try
 			{
-				_db.RemoveAt(idx);
+				var protectedPassword = masterKey.Protect(templateGuid.ToString());
+
+				var idx = _db.FindIndex(x => x.DatabaseName == databaseName);
+				if (idx >= 0)
+				{
+					_db.RemoveAt(idx);
+				}
+
+				_db.Add(new DbMasterKey()
+				{
+					DatabaseName = databaseName,
+					MasterKey = protectedPassword,
+					UnitId = unitId
+				});
+
 			}
-
-			_db.Add(new DbMasterKey()
+			catch (Exception e)
 			{
-				DatabaseName = databaseName, MasterKey = protectedPassword, UnitId = unitId
-			});
+				MessageBox.Show("An error occurred while attempting to AddOrUpdate a new password" + "The error is:" + e.ToString());
+			}
 		}
 
 		public string GetMasterKey(string databaseName, Guid templateGuid)

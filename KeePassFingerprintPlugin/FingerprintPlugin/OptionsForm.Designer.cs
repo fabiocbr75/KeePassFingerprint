@@ -53,186 +53,204 @@
 			this.gpMasterKey.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)(this.errorProvider)).BeginInit();
 			this.SuspendLayout();
-			//
+			// 
 			// panelBottom
-			//
+			// 
 			this.panelBottom.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
 			this.panelBottom.Controls.Add(this.btnCancel);
 			this.panelBottom.Controls.Add(this.btnSave);
 			this.panelBottom.Dock = System.Windows.Forms.DockStyle.Bottom;
-			this.panelBottom.Location = new System.Drawing.Point(142, 304);
+			this.panelBottom.Location = new System.Drawing.Point(212, 469);
+			this.panelBottom.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
 			this.panelBottom.Name = "panelBottom";
-			this.panelBottom.Size = new System.Drawing.Size(319, 30);
+			this.panelBottom.Size = new System.Drawing.Size(480, 45);
 			this.panelBottom.TabIndex = 0;
-			//
+			// 
 			// btnCancel
-			//
+			// 
 			this.btnCancel.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
 			this.btnCancel.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-			this.btnCancel.Location = new System.Drawing.Point(161, 2);
+			this.btnCancel.Location = new System.Drawing.Point(243, 3);
+			this.btnCancel.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
 			this.btnCancel.Name = "btnCancel";
-			this.btnCancel.Size = new System.Drawing.Size(75, 23);
+			this.btnCancel.Size = new System.Drawing.Size(112, 35);
 			this.btnCancel.TabIndex = 2;
 			this.btnCancel.Text = "Cancel";
 			this.btnCancel.UseVisualStyleBackColor = true;
-			//
+			// 
 			// btnSave
-			//
+			// 
 			this.btnSave.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
-			this.btnSave.Location = new System.Drawing.Point(80, 2);
+			this.btnSave.Location = new System.Drawing.Point(121, 3);
+			this.btnSave.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
 			this.btnSave.Name = "btnSave";
-			this.btnSave.Size = new System.Drawing.Size(75, 23);
+			this.btnSave.Size = new System.Drawing.Size(112, 35);
 			this.btnSave.TabIndex = 1;
 			this.btnSave.Text = "Save";
 			this.btnSave.UseVisualStyleBackColor = true;
 			this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
-			//
+			// 
 			// panelLeft
-			//
+			// 
 			this.panelLeft.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
 			this.panelLeft.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
 			this.panelLeft.Controls.Add(this.imgLogo);
 			this.panelLeft.Controls.Add(this.lblProductName);
 			this.panelLeft.Dock = System.Windows.Forms.DockStyle.Left;
 			this.panelLeft.Location = new System.Drawing.Point(0, 0);
+			this.panelLeft.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
 			this.panelLeft.Name = "panelLeft";
-			this.panelLeft.Size = new System.Drawing.Size(142, 334);
+			this.panelLeft.Size = new System.Drawing.Size(212, 514);
 			this.panelLeft.TabIndex = 1;
-			//
+			// 
 			// imgLogo
-			//
+			// 
 			this.imgLogo.Cursor = System.Windows.Forms.Cursors.Hand;
 			this.imgLogo.Dock = System.Windows.Forms.DockStyle.Bottom;
-			this.imgLogo.Location = new System.Drawing.Point(0, 241);
+			this.imgLogo.Location = new System.Drawing.Point(0, 372);
+			this.imgLogo.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
 			this.imgLogo.Name = "imgLogo";
-			this.imgLogo.Size = new System.Drawing.Size(140, 91);
+			this.imgLogo.Size = new System.Drawing.Size(210, 140);
 			this.imgLogo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
 			this.imgLogo.TabIndex = 2;
 			this.imgLogo.TabStop = false;
 			this.toolTip.SetToolTip(this.imgLogo, "Open www.islog.com");
-			//
+			// 
 			// lblProductName
-			//
+			// 
 			this.lblProductName.AutoSize = true;
 			this.lblProductName.Dock = System.Windows.Forms.DockStyle.Top;
 			this.lblProductName.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.lblProductName.ForeColor = System.Drawing.Color.White;
 			this.lblProductName.Location = new System.Drawing.Point(0, 0);
+			this.lblProductName.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
 			this.lblProductName.Name = "lblProductName";
-			this.lblProductName.Size = new System.Drawing.Size(107, 22);
+			this.lblProductName.Size = new System.Drawing.Size(147, 30);
 			this.lblProductName.TabIndex = 2;
 			this.lblProductName.Text = "Fingerprint";
-			//
+			// 
 			// gpReaderConfig
-			//
+			// 
 			this.gpReaderConfig.Controls.Add(this.btnInitialize);
 			this.gpReaderConfig.Controls.Add(this.cbReaderUnit);
 			this.gpReaderConfig.Controls.Add(this.lblReaderUnit);
 			this.gpReaderConfig.Dock = System.Windows.Forms.DockStyle.Top;
-			this.gpReaderConfig.Location = new System.Drawing.Point(142, 0);
+			this.gpReaderConfig.Location = new System.Drawing.Point(212, 0);
+			this.gpReaderConfig.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
 			this.gpReaderConfig.Name = "gpReaderConfig";
-			this.gpReaderConfig.Size = new System.Drawing.Size(319, 118);
+			this.gpReaderConfig.Padding = new System.Windows.Forms.Padding(4, 5, 4, 5);
+			this.gpReaderConfig.Size = new System.Drawing.Size(480, 182);
 			this.gpReaderConfig.TabIndex = 3;
 			this.gpReaderConfig.TabStop = false;
 			this.gpReaderConfig.Text = "Reader Configuration";
-			//
+			// 
 			// btnInitialize
-			//
+			// 
 			this.btnInitialize.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
 			this.btnInitialize.Image = global::FingerprintPlugin.Properties.Resources.RunAsAdmin1;
 			this.btnInitialize.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-			this.btnInitialize.Location = new System.Drawing.Point(99, 65);
+			this.btnInitialize.Location = new System.Drawing.Point(149, 100);
+			this.btnInitialize.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
 			this.btnInitialize.Name = "btnInitialize";
-			this.btnInitialize.Size = new System.Drawing.Size(154, 47);
+			this.btnInitialize.Size = new System.Drawing.Size(231, 72);
 			this.btnInitialize.TabIndex = 4;
 			this.btnInitialize.Text = "Initialize Unit";
 			this.btnInitialize.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
 			this.btnInitialize.UseVisualStyleBackColor = true;
 			this.btnInitialize.Click += new System.EventHandler(this.btnInitialize_Click);
-			//
+			// 
 			// cbReaderUnit
-			//
+			// 
 			this.cbReaderUnit.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
 			this.cbReaderUnit.DropDownWidth = 220;
 			this.cbReaderUnit.FormattingEnabled = true;
-			this.cbReaderUnit.Location = new System.Drawing.Point(99, 32);
+			this.cbReaderUnit.Location = new System.Drawing.Point(148, 49);
+			this.cbReaderUnit.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
 			this.cbReaderUnit.Name = "cbReaderUnit";
-			this.cbReaderUnit.Size = new System.Drawing.Size(154, 21);
+			this.cbReaderUnit.Size = new System.Drawing.Size(229, 28);
 			this.cbReaderUnit.TabIndex = 3;
-			//
+			// 
 			// lblReaderUnit
-			//
+			// 
 			this.lblReaderUnit.AutoSize = true;
-			this.lblReaderUnit.Location = new System.Drawing.Point(26, 35);
+			this.lblReaderUnit.Location = new System.Drawing.Point(39, 54);
+			this.lblReaderUnit.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
 			this.lblReaderUnit.Name = "lblReaderUnit";
-			this.lblReaderUnit.Size = new System.Drawing.Size(67, 13);
+			this.lblReaderUnit.Size = new System.Drawing.Size(99, 20);
 			this.lblReaderUnit.TabIndex = 2;
 			this.lblReaderUnit.Text = "Reader Unit:";
-			//
+			// 
 			// gpMasterKey
-			//
+			// 
 			this.gpMasterKey.Controls.Add(this.lblVerif);
 			this.gpMasterKey.Controls.Add(this.tbxVerif);
 			this.gpMasterKey.Controls.Add(this.tbxPassword);
 			this.gpMasterKey.Controls.Add(this.lblPassword);
 			this.gpMasterKey.Dock = System.Windows.Forms.DockStyle.Top;
-			this.gpMasterKey.Location = new System.Drawing.Point(142, 118);
+			this.gpMasterKey.Location = new System.Drawing.Point(212, 182);
+			this.gpMasterKey.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
 			this.gpMasterKey.Name = "gpMasterKey";
-			this.gpMasterKey.Size = new System.Drawing.Size(319, 174);
+			this.gpMasterKey.Padding = new System.Windows.Forms.Padding(4, 5, 4, 5);
+			this.gpMasterKey.Size = new System.Drawing.Size(480, 268);
 			this.gpMasterKey.TabIndex = 4;
 			this.gpMasterKey.TabStop = false;
 			this.gpMasterKey.Text = "Master Key";
-			//
+			// 
 			// lblVerif
-			//
+			// 
 			this.lblVerif.AutoSize = true;
-			this.lblVerif.Location = new System.Drawing.Point(31, 68);
+			this.lblVerif.Location = new System.Drawing.Point(46, 105);
+			this.lblVerif.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
 			this.lblVerif.Name = "lblVerif";
-			this.lblVerif.Size = new System.Drawing.Size(62, 13);
+			this.lblVerif.Size = new System.Drawing.Size(92, 20);
 			this.lblVerif.TabIndex = 9;
 			this.lblVerif.Text = "Verification:";
-			//
+			// 
 			// tbxVerif
-			//
-			this.tbxVerif.Location = new System.Drawing.Point(99, 65);
+			// 
+			this.tbxVerif.Location = new System.Drawing.Point(148, 100);
+			this.tbxVerif.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
 			this.tbxVerif.Name = "tbxVerif";
 			this.tbxVerif.PasswordChar = '*';
-			this.tbxVerif.Size = new System.Drawing.Size(154, 20);
+			this.tbxVerif.Size = new System.Drawing.Size(229, 26);
 			this.tbxVerif.TabIndex = 7;
-			//
+			// 
 			// tbxPassword
-			//
-			this.tbxPassword.Location = new System.Drawing.Point(99, 39);
+			// 
+			this.tbxPassword.Location = new System.Drawing.Point(148, 60);
+			this.tbxPassword.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
 			this.tbxPassword.Name = "tbxPassword";
 			this.tbxPassword.PasswordChar = '*';
-			this.tbxPassword.Size = new System.Drawing.Size(154, 20);
+			this.tbxPassword.Size = new System.Drawing.Size(229, 26);
 			this.tbxPassword.TabIndex = 6;
-			//
+			// 
 			// lblPassword
-			//
+			// 
 			this.lblPassword.AutoSize = true;
-			this.lblPassword.Location = new System.Drawing.Point(37, 42);
+			this.lblPassword.Location = new System.Drawing.Point(56, 65);
+			this.lblPassword.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
 			this.lblPassword.Name = "lblPassword";
-			this.lblPassword.Size = new System.Drawing.Size(56, 13);
+			this.lblPassword.Size = new System.Drawing.Size(82, 20);
 			this.lblPassword.TabIndex = 8;
 			this.lblPassword.Text = "Password:";
-			//
+			// 
 			// errorProvider
-			//
+			// 
 			this.errorProvider.ContainerControl = this;
-			//
+			// 
 			// OptionsForm
-			//
+			// 
 			this.AcceptButton = this.btnSave;
-			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+			this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			this.CancelButton = this.btnCancel;
-			this.ClientSize = new System.Drawing.Size(461, 334);
+			this.ClientSize = new System.Drawing.Size(692, 514);
 			this.Controls.Add(this.gpMasterKey);
 			this.Controls.Add(this.gpReaderConfig);
 			this.Controls.Add(this.panelBottom);
 			this.Controls.Add(this.panelLeft);
 			this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
+			this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
 			this.Name = "OptionsForm";
 			this.ShowIcon = false;
 			this.Text = "KeePass RFID Options";

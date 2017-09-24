@@ -141,11 +141,20 @@ namespace FingerprintPlugin
 				}
 				Progress(good);
 			}
-			WriteLog(string.Format("Committing enrollment.."));
-			WinBioIdentity identity;
-			var isNewTemplate = WinBio.EnrollCommit(session, out identity);
-			WriteLog(string.Format(isNewTemplate ? "New template committed." : "Template already existing."));
-			EnableDisableOk(true);
+			WriteLog("Committing enrollment..");
+			bool isNewTemplate;
+			WinBioIdentity identity = null;
+			try
+			{
+				isNewTemplate = WinBio.EnrollCommit(session, out identity);
+				WriteLog(isNewTemplate ? "New template committed." : "Template already existing.");
+				EnableDisableOk(true);
+			}
+			catch (Exception e)
+			{
+				WriteLog("Error on AddEnrollment. Error:" + e.Message);
+			}
+
 			return identity;
 		}
 
@@ -166,7 +175,12 @@ namespace FingerprintPlugin
 				progressBar.Invoke(new Action<int>(Progress), number);
 				return;
 			}
-			progressBar.Value = number;
+
+			if (number <= progressBar.Maximum)
+			{
+				progressBar.Value = number;
+			}
+			
 		}
 		private void WriteLog(string text)
 		{
@@ -175,6 +189,7 @@ namespace FingerprintPlugin
 				lblProgress.Invoke(new Action<string>(WriteLog), text);
 				return;
 			}
+			//MessageBox.Show(text);
 			lblProgress.Text = text;
 
 		}

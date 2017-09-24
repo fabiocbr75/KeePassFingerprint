@@ -51,6 +51,7 @@ Global
 		{6D7EBD5F-56DA-4D8B-81C6-95C980F3D6F5}.Debug|x86.Build.0 = Debug|x86
 		{6D7EBD5F-56DA-4D8B-81C6-95C980F3D6F5}.Release|Any CPU.ActiveCfg = Release|x86
 		{6D7EBD5F-56DA-4D8B-81C6-95C980F3D6F5}.Release|x64.ActiveCfg = Release|x64
+		{6D7EBD5F-56DA-4D8B-81C6-95C980F3D6F5}.Release|x64.Build.0 = Release|x64
 		{6D7EBD5F-56DA-4D8B-81C6-95C980F3D6F5}.Release|x86.ActiveCfg = Release|x86
 		{6D7EBD5F-56DA-4D8B-81C6-95C980F3D6F5}.Release|x86.Build.0 = Release|x86
 	EndGlobalSection
