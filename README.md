@@ -1,6 +1,6 @@
 # KeePassFingerprint
 
-- Keepass v2.36 fingerprint plugin.
+- Keepass v2.36 64bit fingerprint plugin.
 
 # Technology used:
 
