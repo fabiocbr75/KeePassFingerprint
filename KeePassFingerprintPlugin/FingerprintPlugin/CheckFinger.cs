@@ -119,10 +119,11 @@ namespace FingerprintPlugin
 			WriteLog(string.Format("Beginning enrollment of {0}:", subType));
 			WinBio.EnrollBegin(session, subType, unitId);
 			var code = WinBioErrorCode.MoreData;
+			WinBioRejectDetail rejectDetail;
+
 			int good = 0;
 			for (var swipes = 1; code != WinBioErrorCode.Ok; swipes++)
 			{
-				WinBioRejectDetail rejectDetail;
 				code = WinBio.EnrollCapture(session, out rejectDetail);
 				switch (code)
 				{
@@ -148,7 +149,13 @@ namespace FingerprintPlugin
 			{
 				isNewTemplate = WinBio.EnrollCommit(session, out identity);
 				WriteLog(isNewTemplate ? "New template committed." : "Template already existing.");
+				if (!isNewTemplate)
+				{
+					WinBio.Identify(session, out identity, out subType, out rejectDetail);
+				}
+
 				EnableDisableOk(true);
+
 			}
 			catch (Exception e)
 			{
