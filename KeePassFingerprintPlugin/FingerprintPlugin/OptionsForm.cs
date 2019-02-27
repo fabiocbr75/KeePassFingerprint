@@ -43,7 +43,7 @@ namespace FingerprintPlugin
 		{
 			InitializeComponent();
 			this.ShowInTaskbar = false;
-			this.TopMost = true;
+			//this.TopMost = true;
 			this.Focus();
 			this.BringToFront();
 		}
@@ -73,8 +73,8 @@ namespace FingerprintPlugin
 				else
 				{
 					gpMasterKey.Enabled = true;
-					btnInitialize.Enabled = false;
-				}
+                    btnInitialize.Enabled = false;
+                }
 
 			}
 			catch (Exception ex)
