@@ -50,7 +50,9 @@ namespace FingerprintPlugin
 		}
 		private void OpenBiometricSession()
 		{
-			_session = WinBio.OpenSession(WinBioBiometricType.Fingerprint, WinBioPoolType.Private, WinBioSessionFlag.Basic, new[] { _unitId }, Shared.DatabaseId);
+            var units = WinBio.EnumBiometricUnits(WinBioBiometricType.Fingerprint);
+            _unitId = units.FirstOrDefault().UnitId;
+            _session = WinBio.OpenSession(WinBioBiometricType.Fingerprint, WinBioPoolType.Private, WinBioSessionFlag.Basic, new[] { _unitId }, Shared.DatabaseId);
 			WriteLog("Session opened: " + _session.Value);
 		}
 
